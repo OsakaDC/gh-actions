@@ -49,7 +49,7 @@ jobs:
           - name: prepare dbt run options
             id: prepare-options
             if: ${{ github.event_name == 'workflow_dispatch' }}
-            uses: ./actions/prepare-dbt-run-options
+            uses: ./actions/prepare-dbt-run-options@v1
             with: 
               is-full-refresh: inputs.full-refresh
               models: inputs.models
