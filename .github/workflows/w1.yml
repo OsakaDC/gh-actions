@@ -43,10 +43,8 @@ jobs:
           dbt-run-options: steps.prepare-options.outputs.options || ''
         
         steps:
-          # - name: clone repository
-          #   uses: actions/checkout@v6
-          # - name: clone repository
-          #   uses: actions/checkout@v6
+          - name: clone repository
+            uses: actions/checkout@v6
 
           - name: prepare dbt run options
             id: prepare-options
