@@ -18,7 +18,7 @@ inputs:
 outputs:
   options:
    description: dbt run options to be used as a suffix
-   default: ''
+   # default: ''
 
 runs: 
   using: node24
