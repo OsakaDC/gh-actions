@@ -45,8 +45,15 @@ jobs:
         steps:
           # - name: clone repository
           #   uses: actions/checkout@v6
+          # - name: clone repository
+          #   uses: actions/checkout@v6
 
           - name: prepare dbt run options
             id: prepare-options
             if: ${{ github.event_name == 'workflow_dispatch' }}
-            run: echo "options=xhy" >> $GITHUB_OUTPUT
+            uses: ./actions/prepare-dbt-run-options
+            with: 
+              is-full-refresh: inputs.full-refresh
+              models: inputs.models
+          - name: check previous action
+            run: echo ${{ steps.prepare-options.outputs.options }}
