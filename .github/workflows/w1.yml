@@ -44,14 +44,15 @@ jobs:
         
         steps:
           - name: clone repository
-            uses: actions/checkout@v6
+            uses: actions/checkout@v7
 
           - name: prepare dbt run options
             id: prepare-options
             if: ${{ github.event_name == 'workflow_dispatch' }}
-            uses: ./.github/actions/prepare-dbt-run-options
+            uses: ./.github/workflows/actions/prepare-dbt-run-options
             with: 
               is-full-refresh: inputs.full-refresh
               models: inputs.models
+              
           - name: check previous action
             run: echo ${{ steps.prepare-options.outputs.options }}
