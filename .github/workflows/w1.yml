@@ -49,4 +49,4 @@ jobs:
           - name: prepare dbt run options
             id: prepare-options
             if: ${{ github.event_name == 'workflow_dispatch' }}
-            run: echo "$options=xhy" >> $GITHUB_OUTPUT
+            run: echo "options=xhy" >> $GITHUB_OUTPUT
