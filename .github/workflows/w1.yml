@@ -25,7 +25,7 @@ on:
 
   workflow_dispatch:
     inputs:
-      sm:
+      full-refresh:
         description: "enter something"
         type: string
         required: false
