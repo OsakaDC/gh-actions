@@ -37,8 +37,8 @@ on:
         required: false
         default: ''
 jobs:
-  greet:
-    runs-on: ubuntu-slim
-    steps: 
-      - name: greet
-        run: echo Hello
+    prepare:
+        runs-on: ubuntu-slim
+        steps:
+          - name: spit out inputs
+            run: echo full-refresh ${{ inputs.full-refresh }}", models ${{ inputs.models }}
