@@ -1,0 +1,25 @@
+name: prepare dbt run options 
+description: sanitize inputs and create dbt run options to be used as a suffix
+author: Hujaakbar
+
+inputs:
+  is-full-refresh:
+   description: whether --full-refresh option will be added
+   type: boolean
+   required: false
+   default: false
+  
+  models:
+   description: comma separated model/directory names 
+   type: string
+   required: false
+   default: ''
+
+outputs:
+  options:
+   description: dbt run options to be used as a suffix
+   default: ''
+
+runs: 
+  using: node24
+  main: index.js
