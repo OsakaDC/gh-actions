@@ -39,9 +39,14 @@ on:
 jobs:
     prepare:
         runs-on: ubuntu-slim
+        outputs:
+          dbt-run-options: steps.prepare-options.outputs.options || ''
+        
         steps:
-          - name: spit out inputs
-            run: echo full-refresh ${{ inputs.full-refresh }}, models ${{ inputs.models }}
-          - name: boolean or string
-            if: ${{ inputs.full-refresh }}
-            run: echo it is a boolean
+          # - name: clone repository
+          #   uses: actions/checkout@v6
+
+          - name: prepare dbt run options
+            id: prepare-options
+            if: ${{ github.event_name == 'workflow_dispatch' }}
+            run: echo "$options=xhy" >> $GITHUB_OUTPUT
