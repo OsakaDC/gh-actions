@@ -1,5 +1,5 @@
 name: Continuous Integration
-run-name: "Triggered by ${{ github.actor }}"
+run-name: "${{ github.event_name == 'workflow_dispatch' && 'Manually' || 'Automatically' }} Triggered by ${{ github.actor }}"
 on:  
   push:
     branches:
