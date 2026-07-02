@@ -1,0 +1,38 @@
+name: Continuous Integration
+run-name: "Triggered by ${{ github.actor }}"
+on:  
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - 'snapshots/**'
+      - 'analyses/**'
+
+  pull_request:
+    branches:
+      - develop
+      - stage
+      - main
+    types: 
+      - opened
+      - synchronize
+      - reopened
+    paths-ignore:
+      - 'docs/**'
+      - 'snapshots/**'
+      - 'analyses/**'
+
+  workflow_dispatch:
+    inputs:
+      sm:
+        description: "enter something"
+        type: string
+        required: false
+        default: hello
+jobs:
+  greet:
+    runs-on: ubuntu-slim
+    steps: 
+      - name: greet
+        run: echo Hello
