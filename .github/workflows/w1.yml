@@ -24,12 +24,18 @@ on:
       - 'analyses/**'
 
   workflow_dispatch:
-    inputs:
+    inputs:    
       full-refresh:
-        description: "enter something"
+        description: wether to do a full refresh
+        type: boolean
+        required: false
+        default: false
+      
+      models:
+        description: comma separated model names or directories
         type: string
         required: false
-        default: hello
+        default: ''
 jobs:
   greet:
     runs-on: ubuntu-slim
