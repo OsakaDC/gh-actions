@@ -38,7 +38,7 @@ on:
         default: ''
 jobs:
     prepare:
-        runs-on: ubuntu-slim
+        runs-on: ubuntu-latest # slim version may not have @actions/core package
         outputs:
           dbt-run-options: steps.prepare-options.outputs.options || ''
         
