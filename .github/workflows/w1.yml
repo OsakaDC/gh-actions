@@ -42,3 +42,6 @@ jobs:
         steps:
           - name: spit out inputs
             run: echo full-refresh ${{ inputs.full-refresh }}, models ${{ inputs.models }}
+          - name: boolean or string
+            if: ${{ inputs.full-refresh }}
+            run: echo it is a boolean
